@@ -1,0 +1,7 @@
+Aquí va el modelo
+
+Aquí se manejan los datos que se mandan a la capa de persistencia y de ahí se modifica la base de datos
+
+Como se hace?
+
+Ni idea
