@@ -41,7 +41,7 @@
             </div>
             <div class="col-sm-3">
                 <label for="validationCustomUsername" class="form-label">Lugar de residencia</label>
-                <select class="form-select" nam="residencia" naria-label="Default select example">
+                <select class="form-select" name="residencia" naria-label="Default select example">
                     <option value="1">Bogota</option>
                     <option value="2">Bucaramanga</option>
                 </select>
@@ -93,15 +93,11 @@
     </div>
     <div class="mt-5">
         <ul>
-
+            {% for persona in list %}
             <li>
-                Jean Rodriguez 1 1005322413 2 2001-03-06 j.carlo0123@gmail.com 3045318293 Jeansupre 1234
+                {{persona.nombre}} {{persona.apellido}} {{persona.idtipodocumento}} {{persona.documento}} {{persona.lugarresidencia}} {{persona.fechanacimiento}} {{persona.email}} {{persona.telefono}} {{persona.usuario}} {{persona.password}}
             </li>
-
-            <li>
-                Juan Martinez 2 12354878 1 2006-08-02 juanito@gmail.com 168354355 Juanito 9876
-            </li>
-
+            {% endfor %}
         </ul>
     </div>
 

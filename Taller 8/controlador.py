@@ -15,10 +15,10 @@ def index():
 
 @app.route('/registros', methods=['POST'])
 def registros():
-    perso = persona(nombres=request.form['nombres'], apellidos=request.form['apellidos'],
-                      idtipodocumento=request.form['tipodocumento'], documento=request.form['documento'], lugarresidencia=request.form['residencia'],
-                      fechanacimiento=request.form['fecha'], email=request.form['email'], telefono=request.form['telefono'], usuario=request.form['usuario'],
-                      password=request.form['password'])
+    perso = persona(nombres=request.form['nombres'], apellidos=request.form['apellidos'], 
+                    idtipodocumento=request.form['tipodocumento'], documento=request.form['documento'], lugarresidencia=request.form['residencia'],
+                    fechanacimiento=request.form['fecha'], email=request.form['email'], telefono=request.form['telefono'], usuario=request.form['usuario'],
+                    password=request.form['password'])
     db.session.add(perso)
-    db.commit
+    db.session.commit()
     return redirect(url_for('index'))

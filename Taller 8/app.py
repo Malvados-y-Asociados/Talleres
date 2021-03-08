@@ -1,8 +1,7 @@
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy, SessionBase
 
 app = Flask(__name__)
-app.config['SECRET KEY'] = 'Tigris'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///databases/proyecto.db'
 
 db = SQLAlchemy(app)
