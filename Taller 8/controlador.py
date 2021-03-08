@@ -1,24 +1,24 @@
 from app import app
 from modelos import *
-from flask import render_template
+from flask import render_template, request, redirect, url_for
 
 
 @app.route('/')
 def index():
-    personas = persona.query_all()
-    ciudades = ciudad.query_all()
-    tiposdocumentos = tipodocumento.query_all()
+    personas = persona.query.all()
     personass=[]
-    ciudadess=[]
-    tiposdocumentoss=[]
-    for persona in personas:
-        personass += [persona]
-        
-    for ciudad in ciudades:
-        ciudadess += [ciudad]
+    for Persona in personas:
+        personass += [Persona]
 
-    for tipodocumento in tiposdocumentos:
-        tiposdocumentoss += [tipodocumento]
+    return render_template('Vista.html',list=personass)
 
-    return render_template('index.html',personass,ciudadess,tiposdocumentoss)
-    
+
+@app.route('/registros', methods=['POST'])
+def registros():
+    perso = persona(nombres=request.form['nombres'], apellidos=request.form['apellidos'],
+                      idtipodocumento=request.form['tipodocumento'], documento=request.form['documento'], lugarresidencia=request.form['residencia'],
+                      fechanacimiento=request.form['fecha'], email=request.form['email'], telefono=request.form['telefono'], usuario=request.form['usuario'],
+                      password=request.form['password'])
+    db.session.add(perso)
+    db.commit
+    return redirect(url_for('index'))

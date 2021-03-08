@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Video</title>
+    <title>MVC</title>
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR1iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--Fonts-->
@@ -16,7 +16,7 @@
             <div class="card">
                 <div class="card-body">
                     <ul class="list-group">
-                        {% for persona in list %}
+                        {% for personass in list %}
                         <li class="list-group-item">
                             <span class="">Id: {{personass[0]}}</span>
                             <span class="">Nombres: {{personass[0]}}</span>
@@ -44,7 +44,7 @@
 
                         </li>
                         {% endfor %}
-                        <br> {% for Ciudades in list %}
+                        <br> {% for ciudadess in list %}
                         <li class="list-group-item">
                             <span class="">Id: {{ciudadess[0]}}</span>
                             <span class="">Nombre: {{ciudadess[0]}}</span>
@@ -55,7 +55,7 @@
                             <span class="">Descripción: {{ciudadess[1]}}</span>
                         </li>
                         {% endfor %}
-                        <br> {% for tipos de documentos in list %}
+                        <br> {% for tiposdocumentoss in list %}
                         <li class="list-group-item">
                             <span class="">Id: {{tiposdocumentoss[0]}}</span>
                             <span class="">Nombre: {{tiposdocumentoss[0]}}</span>
