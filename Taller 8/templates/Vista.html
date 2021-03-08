@@ -100,8 +100,8 @@
             <li class="list-group-item">
                 {{persona.nombres}} {{persona.apellidos}} {{persona.idtipodocumento}} {{persona.documento}} {{persona.lugarresidencia}} {{persona.fechanacimiento}} {{persona.email}} {{persona.telefono}} {{persona.usuario}} {{persona.password}}
                 <span>
-                    <a href="/delete/1" class="btn btn-danger btn-sm">Borrar</a>
-                    <a href="/modificar" class="btn btn-success btn-sm">Editar</a>
+                    <a href="/delete/{{persona.id}}" class="btn btn-danger btn-sm">Borrar</a>
+                    <a href="/editar/{{persona.id}}" class="btn btn-success btn-sm">Editar</a>
                 </span>
             </li>
             {% endfor %}
