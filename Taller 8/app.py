@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['SECRET KEY'] = 'Tigris'
-app.config['SQLALCHEMY_DATABASES_URI'] = 'sqlite:///databases/proyecto.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///databases/proyecto.db'
 
 db = SQLAlchemy(app)
 

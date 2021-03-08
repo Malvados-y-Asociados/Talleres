@@ -1,25 +1,30 @@
 from app import db
+from sqlalchemy import ForeignKey
+from sqlalchemy.orm import relationship
+from sqlalchemy.ext.declarative import declarative_base
 
 class persona(db.Model):
     __tablename__ = 'Persona'
     id = db.Column(db.Integer, primary_key = True)
     nombres = db.Column(db.String(50))
     apellidos = db.Column(db.String(50))
-#    idtipodocumento = db.Column(db.Integer, foreignKey('tipodocumento.id'))
+    idtipodocumento = db.Column(db.Integer, ForeignKey('TipoDocumento.id'))
     documento = db.Column(db.Integer)
-#    lugarresidencia = db.Column(db.String(100), foreignKey('ciudad.id'))
+    lugarresidencia = db.Column(db.String(100), ForeignKey('Ciudad.id'))
+    fechanacimiento = db.Column(db.Date)
     email = db.Column(db.String(50))
     telefono = db.Column(db.String(50))
     usuario = db.Column(db.String(50))
     password = db.Column(db.String(50))
+    tipodocumento = relationship("tipodocumento")
+    ciudad = relationship("ciudad")
 
 
 class tipodocumento(db.Model):
-    __tablename__ = 'Tipo de Documento'
+    __tablename__ = 'TipoDocumento'
     id = db.Column(db.Integer, primary_key = True)
     nombre = db.Column(db.String(50))
     descripcion = db.Column(db.String(100))
-#    persona = relationship('Persona')
 
 
 class ciudad(db.Model):
@@ -27,4 +32,3 @@ class ciudad(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     nombre = db.Column(db.String(50))
     descripcion = db.Column(db.String(100))
-#    persona = relationship('Persona')
