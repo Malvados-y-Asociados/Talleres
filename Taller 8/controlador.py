@@ -17,7 +17,7 @@ def index():
 def registros():
     perso = persona(nombres=request.form['nombres'], apellidos=request.form['apellidos'], 
                     idtipodocumento=request.form['tipodocumento'], documento=request.form['documento'], lugarresidencia=request.form['residencia'],
-                    fechanacimiento=request.form['fecha'], email=request.form['email'], telefono=request.form['telefono'], usuario=request.form['usuario'],
+                    email=request.form['email'], telefono=request.form['telefono'], usuario=request.form['usuario'],
                     password=request.form['password'])
     db.session.add(perso)
     db.session.commit()

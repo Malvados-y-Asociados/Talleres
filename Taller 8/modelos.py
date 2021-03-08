@@ -2,6 +2,7 @@ from app import db
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
+from datetime import date
 
 class persona(db.Model):
     __tablename__ = 'Persona'
