@@ -14,18 +14,16 @@
 </head>
 
 <body class="mt-5">
-    <h1 class="offset-md-4">Ingrese los datos de la persona</h1>
+    <h1 class="offset-md-4">Actualice los datos de la persona</h1>
     <div class="offset-md-3 mt-5">
-        <form class="row g-3 needs-validation col-md-9" action="/registros" method="POST" novalidate>
+        <form class="row g-3 needs-validation col-md-9" action="/actualizar" method="POST" novalidate>
             <div class="col-md-2">
                 <label for="validationCustom01" class="form-label">Nombres</label>
                 <input type="text" class="form-control" name="nombres" id="validationCustom01" required autofocus>
-                <div class="valid-feedback">Perfecto!</div>
             </div>
             <div class="col-md-3">
                 <label for="validationCustom02" class="form-label">Apellidos</label>
                 <input type="text" class="form-control" name="apellidos" id="validationCustom02" required>
-                <div class="valid-feedback">Perfecto!</div>
             </div>
             <div class="col-4">
                 <label for="validationCustomUsername" class="form-label">Documento</label>
@@ -50,65 +48,31 @@
                 </select>
             </div>
             <div class="col-md-3">
-                <label for="validationCustom04" class="form-label col-lg-12">Fecha de nacimiento</label>
-                <input class="form-control" name="fecha" id="date" type="date" required>
-                <div class="invalid-feedback">Por favor ingrese una fecha</div>
-                <div class="valid-feedback">Perfecto!</div>
-            </div>
-            <div class="col-md-3">
                 <label for="validationCustom05" class="form-label">Email</label>
                 <input type="email" class="form-control" name="email" id="validationCustom05" required>
-                <div class="invalid-feedback">Por Favor provea un email valido</div>
-                <div class="valid-feedback">Perfecto!</div>
             </div>
             <div class="col-md-3">
                 <label for="validationCustom05" class="form-label">Telefono</label>
                 <input type="text" class="form-control" minlength="10" maxlength="10" name="telefono" id="validationCustom05" required>
-                <div class="invalid-feedback">Por Favor provea un telefono valido</div>
-                <div class="valid-feedback">Perfecto!</div>
             </div>
-            <br>
-            <div class="col-md-3" id="usuario">
-                <label for="validationCustom05" class="form-label">Usario</label>
-                <input type="email" class="form-control" name="usuario" id="validationCustom05" required>
-                <div class="invalid-feedback">Por Favor provea un email valido</div>
-                <div class="valid-feedback">Perfecto!</div>
-            </div>
-            <div class="col-12">
-
-            </div>
-            <div class="col-md-3">
-                <label for="validationCustom05" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" minlength="6" name="password" data-testid="input-password" id="validationCustom05" required>
-                <div class="invalid-feedback">Por Favor provea una contraseña valida</div>
-                <div class="valid-feedback">Perfecto!</div>
-            </div>
-            <div class="col-md-3">
-                <label for="validationCustom05" class="form-label">Confirme la contraseña</label>
-                <input type="password" class="form-control" minlength="6" data-testid="input-confirm-password" id="validationCustom05" required>
-                <div class="invalid-feedback">Por Favor provea una contraseña valida</div>
-                <div class="valid-feedback">Perfecto!</div>
+            <div>
+                <div class="col-md-3">
+                    <label for="validationCustom05" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" minlength="6" name="password" data-testid="input-password" id="validationCustom05" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="validationCustom05" class="form-label">Confirme la contraseña</label>
+                    <input type="password" class="form-control" minlength="6" data-testid="input-confirm-password" id="validationCustom05" required>
+                </div>
             </div>
             <div class="col-12">
-                <button class="btn btn-primary" type="submit">Enviar</button>
+                <button class="btn btn-success" type="submit">Actualizar</button>
+            </div>
+            <div class=col-12>
+                <a href="/" class="btn btn-danger btn-sm">Cancelar</a>
             </div>
         </form>
     </div>
-    <div class="mt-5">
-        <ul class="list-group col-7 offset-3">
-            {% for persona in list %}
-            <li class="list-group-item">
-                {{persona.nombres}} {{persona.apellidos}} {{persona.idtipodocumento}} {{persona.documento}} {{persona.lugarresidencia}} {{persona.fechanacimiento}} {{persona.email}} {{persona.telefono}} {{persona.usuario}} {{persona.password}}
-                <span>
-                    <a href="/delete/1" class="btn btn-danger btn-sm">Borrar</a>
-                    <a href="/modificar" class="btn btn-success btn-sm">Editar</a>
-                </span>
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
-
-
 </body>
 
 </html>
