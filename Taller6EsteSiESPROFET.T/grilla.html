@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Grilla</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	crossorigin ="anonymous">
+
+</head>
+<body>
+
+<div class="container my-5 text-center">
+	<button class="btn btn-danger w-100" onclick="traer()">Cargar tabla</button>
+	<div class = "mt-5" >
+
+
+
+		<table id="tabla" class="table table-striped" >
+	  <thead>
+	    <tr >
+	      <th scope="col">#</th>
+	      <th scope="col">Nombre</th>
+	      <th scope="col">Usuario</th>
+	      <th scope="col">Correo</th>
+				<th scope="col">Dirección</th>
+				<th scope="col">Coordenadas</th>
+				<th scope="col">Telefono</th>
+				<th scope="col">Página</th>
+				<th scope="col">Compañía</th>
+	    </tr>
+			<tr>
+          <td colspan="9">
+
+								<input id="buscar" type="text" class="form-control" placeholder="Escribe algo para filtrar" />
+
+
+          </td>
+        </tr>
+	  </thead>
+	  <tbody id ="contenido">
+
+
+	  </tbody>
+	</table>
+
+
+	</div>
+</div>
+
+<script>
+	var contenido = document.querySelector("#contenido")
+	function traer(){
+		fetch('https://jsonplaceholder.typicode.com/users')
+		.then(res => res.json())
+		.then(data => {
+			//console.log(data)
+			tabla(data)
+		})
+	}
+
+	function tabla(datos){
+	//	console.log(datos)
+		var espacio = ", ";
+		contenido.innerHTML = ''
+		for(let valor of datos){
+			contenido.innerHTML += `
+			<tr>
+	      <th scope="row">${valor.id}</th>
+	      <td>${valor.name}</td>
+	      <td>${valor.username}</td>
+	      <td>${valor.email}</td>
+				<td>${valor.address.street.concat(valor.address.suite,espacio,valor.address.city, espacio,valor.address.zipcode ) }</td>
+				<td>${valor.address.geo.lat.concat(espacio, valor.address.geo.lng)}</td>
+				<td>${valor.phone}</td>
+				<td>${valor.website}</td>
+				<td>${valor.company.name.concat(espacio, valor.company.catchPhrase, espacio, valor.company.bs)}</td>
+	    </tr>
+
+			`
+		}
+	}
+	</script>
+
+<script src="js/grilla.js"> </script>
+
+</div>
+
+</body>
+</html>
