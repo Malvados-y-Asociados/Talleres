@@ -1,2 +1,2 @@
 # Talleres
-Talleres de web a partir del 3
+Talleres de web a partir del 2
